@@ -1,0 +1,101 @@
+@font-face {
+    font-family: AlanSans;
+    src: url(./fonts/AlanSans-Regular.ttf) format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: AlanSans, Arial, sans-serif;
+    font-size: 1rem;
+    color: #080f25;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-image: url(./images/hero2.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30rem;
+}
+
+header img {
+    height: 40px;
+    display: flex;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 20;
+    cursor: pointer;
+}
+
+header .menu li a {
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+header .menu li a:hover {
+    transform: translateY(-3px);
+}
+
+.menuLink {
+    list-style: none;
+    padding: 1rem;
+}
+
+header .menu {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    transform: translateX(100%);
+    width: 100%;
+    height: calc(100vh);
+    transition: 500ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #8b7566;
+    z-index: 10;
+}
+
+header .menu.active {
+    transform: translateX(0);
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 2rem;
+    background-color: #8b7566;
+    text-align: center;
+}
+
+/* Media */
+@media (min-width: 980px) {
+    header {
+        height: 30rem;
+    }
+    header img {
+        height: 2rem;
+    }
+
+    header .menu {
+        top: 0px;
+        height: calc(100vh);
+        left: 80%;
+        width: 20%;
+    }
+}
