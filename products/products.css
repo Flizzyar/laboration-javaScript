@@ -1,9 +1,37 @@
+/*
+1. Typsnitt
+    1.1 @font-face
+2. Globala inställningar
+    2.1 Universalselector *
+    2.2 body
+3. Header
+    3.1 header
+4. Meny och varukorg
+    4.1 #menu
+    4.2 #cart
+    4.3 header img
+    4.4 header .hamburgerMenu li a
+    4.5 header .hamburgerMenu li a:hover
+    4.6 .menuLink
+    4.7 header .hamburgerMenu
+    4.8 header .hamburgerMenu.active
+    4.9 #hamburgerBtn
+5. Main
+    5.1 main
+6. Footer
+    6.1 footer
+7. Media queries
+    7.1 @media (min-width: 980px)
+*/
+
 @font-face {
+    /* 1.1 */
     font-family: AlanSans;
     src: url(./fonts/AlanSans-Regular.ttf) format('truetype');
 }
 
 * {
+    /* 2.1 */
     padding: 0;
     margin: 0;
     font-family: AlanSans, Arial, sans-serif;
@@ -12,31 +40,43 @@
 }
 
 body {
+    /* 2.2 */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 header {
+    /* 3.1 */
+    background-color: #8b7566;
     display: flex;
     justify-content: space-between;
-    background-image: url(./images/hero2.jpg);
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 30rem;
+    align-items: center;
+}
+
+#menu {
+    /* 4.1 */
+    display: flex;
+    align-items: center;
+}
+
+#cart {
+    /* 4.2 */
+    height: 1.5rem;
 }
 
 header img {
-    height: 40px;
+    /* 4.3 */
     display: flex;
+    height: 40px;
     padding: 0.5rem 1rem;
     position: relative;
     z-index: 20;
     cursor: pointer;
 }
 
-header .menu li a {
+header .hamburgerMenu li a {
+    /* 4.4 */
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
@@ -44,16 +84,19 @@ header .menu li a {
     display: inline-block;
 }
 
-header .menu li a:hover {
+header .hamburgerMenu li a:hover {
+    /* 4.5 */
     transform: translateY(-3px);
 }
 
 .menuLink {
+    /* 4.6 */
     list-style: none;
     padding: 1rem;
 }
 
-header .menu {
+header .hamburgerMenu {
+    /* 4.7 */
     position: fixed;
     top: 0%;
     left: 0;
@@ -69,30 +112,38 @@ header .menu {
     z-index: 10;
 }
 
-header .menu.active {
+header .hamburgerMenu.active {
+    /* 4.8 */
     transform: translateX(0);
 }
 
+#hamburgerBtn {
+    /* 4.9 */
+    background-color: #8b7566;
+    border-style: none;
+    display: flex;
+    align-items: center;
+}
+
 main {
+    /* 5.1 */
     flex: 1;
 }
 
 footer {
+    /* 6.1 */
     padding: 2rem;
     background-color: #8b7566;
     text-align: center;
 }
 
-/* Media */
+/* 7.1 Media queries */
 @media (min-width: 980px) {
-    header {
-        height: 30rem;
-    }
     header img {
         height: 2rem;
     }
 
-    header .menu {
+    header .hamburgerMenu {
         top: 0px;
         height: calc(100vh);
         left: 80%;

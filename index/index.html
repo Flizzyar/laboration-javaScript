@@ -1,0 +1,82 @@
+<!--
+1. Sidhuvud
+    1.1 Logotyp som länkar tillbaka till startsidan
+    1.2 Sektion med varukorgsikon och navigeringsmeny
+        1.2.1 Ikon för varukorg
+        1.2.2 Hamburger-meny: används för navigering
+            1.2.2.1 Knapp som öppnar/stänger menyn
+            1.2.2.2 Navigeringslänkar i menyn
+2. Main-sektion
+3. Footer
+4. Script
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 1. Sidhuvud: innehåller logotyp, varukorg och meny -->
+        <header>
+            <!-- 1.1 Logotyp som länkar tillbaka till startsidan -->
+            <a href="index.html">
+                <img id="logo"
+                    src="/images/logo.png"
+                    alt="Logotyp med texten The Street Store i enkel och tydlig stil."
+                />
+            </a>
+
+            <!-- 1.2 Sektion med varukorgsikon och navigeringsmeny -->
+            <section id="menu">
+                <!-- 1.2.1 Ikon för varukorg -->
+                <img
+                    id="cart"
+                    src="/images/shopping-bag.png"
+                    alt="Ikon av en shoppingpåse, symbol för handel eller butik."
+                />
+
+                <!-- 1.2.2 Hamburger-meny: används för navigering -->
+                <nav class="hamburger-menu">
+                    <!-- 1.2.2.1 Knapp som öppnar/stänger menyn -->
+                    <button id="hamburgerBtn">
+                        <img
+                            src="/images/hamburger.png"
+                            alt="Ikon med tre horisontella linjer som symboliserar en meny."
+                        />
+                    </button>
+
+                    <!-- 1.2.2.2 Navigeringslänkar i menyn -->
+                    <ul class="hamburgerMenu">
+                        <li class="menuLink">
+                            <a href="/products/products.html">Products</a>
+                        </li>
+                        <li class="menuLink">
+                            <a href="/products/products.html">Men</a>
+                        </li>
+                        <li class="menuLink">
+                            <a href="/products/products.html">Women</a>
+                        </li>
+                        <li class="menuLink">
+                            <a href="/products/products.html">Accessories</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+
+        <!-- 2. Main-sektion -->
+        <main></main>
+
+        <!-- 3. Footer -->
+        <footer>
+            <p>© 2025 My Website</p>
+        </footer>
+
+        <!-- 4. Script -->
+        <script src="index.js"></script>
+    </body>
+</html>
