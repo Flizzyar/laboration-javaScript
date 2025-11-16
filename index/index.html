@@ -1,82 +1,139 @@
-<!--
-1. Sidhuvud
-    1.1 Logotyp som länkar tillbaka till startsidan
-    1.2 Sektion med varukorgsikon och navigeringsmeny
-        1.2.1 Ikon för varukorg
-        1.2.2 Hamburger-meny: används för navigering
-            1.2.2.1 Knapp som öppnar/stänger menyn
-            1.2.2.2 Navigeringslänkar i menyn
-2. Main-sektion
-3. Footer
-4. Script
--->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
-        <title>Document</title>
+        <title>The Street Store</title>
     </head>
     <body>
-        <!-- 1. Sidhuvud: innehåller logotyp, varukorg och meny -->
+        <!-- ========== SIDHUVUD ========== -->
+
+        <!-- Felisia: Logotyp -->
         <header>
-            <!-- 1.1 Logotyp som länkar tillbaka till startsidan -->
+            <!-- Logotyp som länkar till startsidan -->
             <a href="index.html">
-                <img id="logo"
+                <img
+                    id="logo"
                     src="/images/logo.png"
-                    alt="Logotyp med texten The Street Store i enkel och tydlig stil."
+                    alt="The Street Store logotyp"
                 />
             </a>
+            <!-- /Felisia -->
 
-            <!-- 1.2 Sektion med varukorgsikon och navigeringsmeny -->
+            <!-- Jesper: Kategoriknappar -->
+            <div class="hero-buttons">
+                <a
+                    href="/products/products.html?category=men's clothing"
+                    class="category-btn"
+                >
+                    Men
+                </a>
+                <a
+                    href="/products/products.html?category=women's clothing"
+                    class="category-btn"
+                >
+                    Women
+                </a>
+                <a
+                    href="/products/products.html?category=jewelery"
+                    class="category-btn"
+                >
+                    Accessories
+                </a>
+                <a
+                    href="/products/products.html?category=electronics"
+                    class="category-btn"
+                >
+                    Electronics
+                </a>
+            </div>
+            <!-- /Jesper -->
+
+            <!-- Felisia: Meny & varukorg -->
             <section id="menu">
-                <!-- 1.2.1 Ikon för varukorg -->
                 <img
                     id="cart"
                     src="/images/shopping-bag.png"
-                    alt="Ikon av en shoppingpåse, symbol för handel eller butik."
+                    alt="Shoppingpåse"
                 />
 
-                <!-- 1.2.2 Hamburger-meny: används för navigering -->
+                <!-- Hamburger-meny -->
                 <nav class="hamburger-menu">
-                    <!-- 1.2.2.1 Knapp som öppnar/stänger menyn -->
                     <button id="hamburgerBtn">
-                        <img
-                            src="/images/hamburger.png"
-                            alt="Ikon med tre horisontella linjer som symboliserar en meny."
-                        />
+                        <img src="/images/hamburger.png" alt="Menyikon" />
                     </button>
 
-                    <!-- 1.2.2.2 Navigeringslänkar i menyn -->
                     <ul class="hamburgerMenu">
                         <li class="menuLink">
                             <a href="/products/products.html">Products</a>
                         </li>
                         <li class="menuLink">
-                            <a href="/products/products.html">Men</a>
+                            <a
+                                href="/products/products.html?category=men's clothing"
+                                >Men</a
+                            >
                         </li>
                         <li class="menuLink">
-                            <a href="/products/products.html">Women</a>
+                            <a
+                                href="/products/products.html?category=women's clothing"
+                                >Women</a
+                            >
                         </li>
                         <li class="menuLink">
-                            <a href="/products/products.html">Accessories</a>
+                            <a href="/products/products.html?category=jewelery"
+                                >Accessories</a
+                            >
                         </li>
                     </ul>
                 </nav>
             </section>
+            <!-- /Felisia -->
         </header>
 
-        <!-- 2. Main-sektion -->
-        <main></main>
+        <!-- ========== HUVUDINNEHÅLL ========== -->
 
-        <!-- 3. Footer -->
+        <!-- Hanna: Om-oss-sektion -->
+        <main>
+            <section class="about">
+                <h1 class="about-title">Om oss</h1>
+
+                <p class="about-text">
+                    Vi på The Street Store saknade en plats där man enkelt kan
+                    hitta det mesta man behöver i vardagen. Istället för att
+                    leta runt på olika sidor för kläder, accessoarer och teknik,
+                    har vi samlat allt på ett och samma ställe. Våra produkter
+                    är noggrant utvalda för att vara både snygga, hållbara och
+                    användbara – för dig som vill ha stil och funktion i ett.
+                </p>
+
+                <p class="about-text">
+                    Vi grundades för bara ett år sedan, men vår ambition har
+                    varit tydlig från början: att göra din vardag enklare genom
+                    att samla det du faktiskt behöver – på ett ställe.
+                </p>
+
+                <!-- Jul-REA-sektion -->
+                <div class="rea-bild">
+                    <img src="/images/Rea2.jpg" alt="Julrea-bild" />
+                    <h2 class="jul-rea">Julrea</h2>
+                    <p class="image-text">
+                        Utvalda produkter till bättre pris – perfekt för dig som
+                        vill ge något snyggt, hållbart och användbart i jul.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <!-- /Hanna -->
+
+        <!-- ========== FOOTER ========== -->
+
+        <!-- Felisia: Footer -->
         <footer>
-            <p>© 2025 My Website</p>
+            <p>© 2025 The Street Store</p>
         </footer>
+        <!-- /Felisia -->
 
-        <!-- 4. Script -->
         <script src="index.js"></script>
     </body>
 </html>

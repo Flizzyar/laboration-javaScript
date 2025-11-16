@@ -57,24 +57,21 @@ header {
 #menu {
     /* 4.1 */
     display: flex;
-    align-items: center;
 }
-
 #cart {
     /* 4.2 */
     height: 1.5rem;
+    padding-top: 1.2rem;
 }
-
 header img {
     /* 4.3 */
     display: flex;
-    height: 40px;
+    height: 30px;
     padding: 0.5rem 1rem;
     position: relative;
     z-index: 20;
     cursor: pointer;
 }
-
 header .hamburgerMenu li a {
     /* 4.4 */
     text-decoration: none;
@@ -83,18 +80,18 @@ header .hamburgerMenu li a {
     transition: all 0.3s ease;
     display: inline-block;
 }
-
 header .hamburgerMenu li a:hover {
     /* 4.5 */
     transform: translateY(-3px);
 }
-
+#logo {
+    height: 3rem;
+}
 .menuLink {
     /* 4.6 */
     list-style: none;
     padding: 1rem;
 }
-
 header .hamburgerMenu {
     /* 4.7 */
     position: fixed;
@@ -110,24 +107,98 @@ header .hamburgerMenu {
     flex-direction: column;
     background-color: #8b7566;
     z-index: 10;
+    list-style: none;
 }
-
 header .hamburgerMenu.active {
     /* 4.8 */
     transform: translateX(0);
 }
-
 #hamburgerBtn {
     /* 4.9 */
-    background-color: #8b7566;
+    background-color: transparent;
     border-style: none;
-    display: flex;
-    align-items: center;
+    padding-top: 0.5rem;
 }
 
 main {
     /* 5.1 */
     flex: 1;
+    padding: 20px;
+}
+
+body {
+    background: #8b7566;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#categoryButtons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#categoryButtons button {
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    transition: background-color 0.2s;
+}
+
+#categoryButtons button:hover {
+    background-color: #bbb;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product h2 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+}
+
+.product p {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1;
+}
+
+.price {
+    font-weight: bold;
+    color: #007b55;
+    margin-top: 10px;
+    font-size: 1rem;
 }
 
 footer {

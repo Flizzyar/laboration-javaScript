@@ -24,7 +24,11 @@
         <header>
             <!-- 1.1 Logotyp -->
             <a href="/index/index.html">
-                <img src="/images/logo.png" alt="" />
+                <img
+                    id="logo"
+                    src="/images/logo.png"
+                    alt="The Street Store logotyp"
+                />
             </a>
 
             <!-- 1.2 Sektion med varukorgsikon och navigeringsmeny -->
@@ -42,16 +46,24 @@
                     <!-- 1.2.2.2 Navigeringslänkar -->
                     <ul class="hamburgerMenu">
                         <li class="menuLink">
-                            <a href="#contact">Products</a>
+                            <a href="/products/products.html">Products</a>
                         </li>
                         <li class="menuLink">
-                            <a href="products.html">Men</a>
+                            <a
+                                href="/products/products.html?category=men's clothing"
+                                >Men</a
+                            >
                         </li>
                         <li class="menuLink">
-                            <a href="products.html">Women</a>
+                            <a
+                                href="/products/products.html?category=women's clothing"
+                                >Women</a
+                            >
                         </li>
                         <li class="menuLink">
-                            <a href="products.html">Accessories</a>
+                            <a href="/products/products.html?category=jewelery"
+                                >Accessories</a
+                            >
                         </li>
                     </ul>
                 </nav>
@@ -59,7 +71,13 @@
         </header>
 
         <!-- 2. Main-sektion -->
-        <main></main>
+        <main>
+            <!-- Knappar för kategorier -->
+            <div id="categoryButtons"></div>
+
+            <!-- Produktgrid -->
+            <div id="products" class="product-grid"></div>
+        </main>
 
         <!-- 3. Footer -->
         <footer>

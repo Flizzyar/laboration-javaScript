@@ -13,22 +13,36 @@
     4.3 header img
     4.4 header .hamburgerMenu li a
     4.5 header .hamburgerMenu li a:hover
-    4.6 .menuLink
-    4.7 header .hamburgerMenu
-    4.8 header .hamburgerMenu.active
-    4.9 #hamburgerBtn
-5. Main
-    5.1 main
-6. Footer
-    6.1 footer
-7. Media queries
-    7.1 @media (min-width: 980px)
+    4.6 #logo
+    4.7 .menuLink
+    4.8 header .hamburgerMenu
+    4.9 header .hamburgerMenu.active
+    4.10 #hamburgerBtn
+5. Overlay-knappar
+    5.1 .hero-buttons
+    5.2 .hero-buttons .category-btn
+    5.3 .hero-buttons .category-btn:hover
+6. Main
+    6.1 main
+    6.2 Om-oss (.about)
+        6.2.1 .about-title
+        6.2.2 .about-text
+    6.3 Jul-REA
+        6.3.1 .rea-bild
+        6.3.2 .rea-bild img
+        6.3.3 .jul-rea
+        6.3.4 .image-text
+7. Footer
+    7.1 footer
+8. Media queries
+    8.1 @media (min-width: 980px)
 */
 
+/* Felisias kod ⬇ */
 @font-face {
     /* 1.1 */
     font-family: AlanSans;
-    src: url(./fonts/AlanSans-Regular.ttf) format('truetype');
+    src: url(/fonts/AlanSans-Regular.ttf) format('truetype');
 }
 
 * {
@@ -77,7 +91,7 @@ header::before {
 #cart {
     /* 4.2 */
     height: 1.5rem;
-    padding-top: 1rem;
+    padding-top: 1.2rem;
 }
 
 header img {
@@ -105,17 +119,18 @@ header .hamburgerMenu li a:hover {
 }
 
 #logo {
+    /* 4.6 */
     height: 3rem;
 }
 
 .menuLink {
-    /* 4.6 */
+    /* 4.7 */
     list-style: none;
     padding: 1rem;
 }
 
 header .hamburgerMenu {
-    /* 4.7 */
+    /* 4.8 */
     position: fixed;
     top: 0%;
     left: 0;
@@ -129,50 +144,219 @@ header .hamburgerMenu {
     flex-direction: column;
     background-color: #8b7566;
     z-index: 10;
+    list-style: none;
 }
 
 header .hamburgerMenu.active {
-    /* 4.8 */
+    /* 4.9 */
     transform: translateX(0);
 }
 
 #hamburgerBtn {
-    /* 4.9 */
+    /* 4.10 */
     background-color: transparent;
     border-style: none;
     padding-top: 0.5rem;
 }
+/* Felisias kod ⬆ */
+
+/* Jespers/Felisias kod ⬇ */
+/* 5. Overlay-knappar */
+.hero-buttons {
+    /* 5.1 */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 90%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hero-buttons .category-btn {
+    /* 5.2 */
+    padding: 12px;
+    background-color: rgba(8, 15, 37, 0.85);
+    color: #8b7566;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.1s;
+    text-align: center;
+}
+
+.hero-buttons .category-btn:hover {
+    /* 5.3 */
+    background-color: rgba(8, 15, 37, 1);
+}
+/* Jespers/Felisias kod ⬆ */
 
 main {
-    /* 5.1 */
+    /* 6.1 */
     flex: 1;
 }
 
+/* 6.2 Om-oss */
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-title {
+    /* 6.2.1 */
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.about-text {
+    /* 6.2.2 */
+    display: block;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+}
+
+/* 6.3 Jul-REA */
+.rea-bild {
+    /* 6.3.1 */
+    position: relative;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.rea-bild img {
+    /* 6.3.2 */
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.jul-rea {
+    /* 6.3.3 */
+    position: static;
+    transform: none;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    margin: 1.5rem 0 0.3rem 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.image-text {
+    /* 6.3.4 */
+    position: static;
+    transform: none;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    font-weight: normal;
+    font-size: 1rem;
+    margin: 1.5rem 0 2rem 0;
+}
+
 footer {
-    /* 6.1 */
+    /* 7.1 */
     padding: 2rem;
     background-color: #8b7566;
     text-align: center;
 }
 
-/* 7.1 Media queries */
+/* 8.1 Media queries */
 @media (min-width: 980px) {
     header {
         height: 40rem;
     }
-
     header img {
         height: 2rem;
     }
-
-    #cart {
-        padding-top: 0.8rem;
+    header .menu {
+        top: 0px;
+        height: calc(100vh);
+        left: 80%;
+        width: 20%;
     }
-
+    #cart {
+        /* 4.2 */
+        padding-top: 1.2rem;
+    }
     header .hamburgerMenu {
         top: 0px;
         height: calc(100vh);
         left: 80%;
         width: 20%;
+    }
+    .hero-buttons {
+        top: 70%;
+        width: auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+    }
+    .about {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 0;
+        text-align: left;
+    }
+    .about-title {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto 2rem auto;
+        text-align: left;
+    }
+    .rea-bild {
+        position: relative;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .rea-bild img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 6px;
+    }
+    .jul-rea {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        margin: 0;
+    }
+    .image-text {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin: 0;
+        margin-top: 1rem;
+        text-align: left;
     }
 }
