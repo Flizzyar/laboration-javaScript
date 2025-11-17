@@ -1,46 +1,62 @@
-<!--
-1. Sidhuvud
-    1.1 Logotyp
-    1.2 Sektion med varukorgsikon och navigeringsmeny
-        1.2.1 Ikon för varukorg
-        1.2.2 Hamburger-meny
-            1.2.2.1 Knapp för meny
-            1.2.2.2 Navigeringslänkar
-2. Main-sektion
-3. Footer
-4. Script
--->
+<!-- ============================================================
+     HTML ÖVERSIKT / INNEHÅLLSFÖRTECKNING
+     ------------------------------------------------------------
+     1. Sidhuvud (Header)
+         1.1 Logotyp
+         1.2 Menysektion
+             1.2.1 Varukorgsikon
+             1.2.2 Hamburger-meny
+                 1.2.2.1 Menyknapp
+                 1.2.2.2 Navigeringslänkar
+     2. Main-sektion
+         2.1 Kategoriknappar
+         2.2 Produktgrid
+     3. Sidfot (Footer)
+         3.1 Sociala medier
+         3.2 Kontaktinformation
+     4. Script
+   ============================================================ -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="products.css" />
-        <title>Document</title>
+        <title>Produkter – The Street Store</title>
     </head>
+
     <body>
-        <!-- 1. Sidhuvud -->
+        <!-- ============================================================
+             1. SIDHUVUD
+        ============================================================ -->
         <header>
-            <!-- 1.1 Logotyp -->
+            <!-- 1.1 Logotyp (länk tillbaka till startsidan) -->
             <a href="/index/index.html">
                 <img
                     id="logo"
                     src="/images/logo.png"
-                    alt="The Street Store logotyp"
+                    alt="The Street Store – logotyp"
                 />
             </a>
 
-            <!-- 1.2 Sektion med varukorgsikon och navigeringsmeny -->
+            <!-- 1.2 Menysektion (varukorg + hamburgermeny) -->
             <div id="menu">
-                <!-- 1.2.1 Ikon för varukorg -->
-                <img id="cart" src="/images/shopping-bag.png" alt="" />
+                <!-- 1.2.1 Varukorgsikon -->
+                <img
+                    id="cart"
+                    src="/images/shopping-bag.png"
+                    alt="Ikon som visar din varukorg"
+                />
 
                 <!-- 1.2.2 Hamburger-meny -->
                 <nav class="hamburger-menu">
-                    <!-- 1.2.2.1 Knapp för meny -->
-                    <button id="hamburgerBtn">
-                        <img src="/images/hamburger.png" alt="" />
+                    <!-- 1.2.2.1 Knapp som öppnar/stänger menyn -->
+                    <button id="hamburgerBtn" aria-label="Öppna meny">
+                        <img
+                            src="/images/hamburger.png"
+                            alt="Hamburgerikon för meny"
+                        />
                     </button>
 
                     <!-- 1.2.2.2 Navigeringslänkar -->
@@ -51,49 +67,65 @@
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=men's clothing"
-                                >Men</a
                             >
+                                Men
+                            </a>
                         </li>
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=women's clothing"
-                                >Women</a
                             >
+                                Women
+                            </a>
                         </li>
                         <li class="menuLink">
-                            <a href="/products/products.html?category=jewelery"
-                                >Jewelery</a
-                            >
+                            <a href="/products/products.html?category=jewelery">
+                                Jewelery
+                            </a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </header>
 
-        <!-- 2. Main-sektion -->
+        <!-- ============================================================
+             2. MAIN-SEKTION
+        ============================================================ -->
         <main>
-            <!-- Knappar för kategorier -->
+            <!-- 2.1 Knappar för produktkategorier (genereras i JS) -->
             <div id="categoryButtons"></div>
 
-            <!-- Produktgrid -->
+            <!-- 2.2 Grid för produktkort (dynamiskt innehåll) -->
             <div id="products" class="product-grid"></div>
         </main>
 
-        <!-- 3. Footer -->
+        <!-- ============================================================
+             3. FOOTER
+        ============================================================ -->
         <footer>
-            <p>© 2025 My Website</p>
+            <p>© 2025 The Street Store</p>
+
+            <!-- 3.1 Sociala medier-länkar -->
             <section id="socialMedia">
-                <a href="#"><img src="/images/insta-icon.png" alt="" /></a>
-                <a href="#"><img src="/images/fb-icon.png" alt="" /></a>
+                <a href="#">
+                    <img src="/images/insta-icon.png" alt="Instagram-ikon" />
+                </a>
+                <a href="#">
+                    <img src="/images/fb-icon.png" alt="Facebook-ikon" />
+                </a>
             </section>
-            <search id="contact">
+
+            <!-- 3.2 Kontaktuppgifter -->
+            <section id="contact">
                 <h1>Kontakta oss</h1>
                 <p>010-144 444</p>
                 <p>contact@thestreetstore</p>
-            </search>
+            </section>
         </footer>
 
-        <!-- 4. Script -->
+        <!-- ============================================================
+             4. SCRIPT
+        ============================================================ -->
         <script src="products.js"></script>
     </body>
 </html>

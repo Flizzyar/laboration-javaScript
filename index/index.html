@@ -6,64 +6,65 @@
         <link rel="stylesheet" href="style.css" />
         <title>The Street Store</title>
     </head>
-    <body>
-        <!-- ========== SIDHUVUD ========== -->
 
-        <!-- Felisia: Logotyp -->
+    <body>
+        <!-- =====================================================
+             SIDHUVUD
+        ====================================================== -->
+
         <header>
             <!-- Logotyp som länkar till startsidan -->
             <a href="index.html">
                 <img
                     id="logo"
                     src="/images/logo.png"
-                    alt="The Street Store logotyp"
+                    alt="The Street Store – länk till startsidan"
                 />
             </a>
-            <!-- /Felisia -->
 
-            <!-- Jesper: Kategoriknappar -->
-            <div class="hero-buttons">
+            <!-- Desktop-knappar för kategorier -->
+            <nav class="hero-buttons">
                 <a
                     href="/products/products.html?category=men's clothing"
                     class="category-btn"
+                    >Men</a
                 >
-                    Men
-                </a>
                 <a
                     href="/products/products.html?category=women's clothing"
                     class="category-btn"
+                    >Women</a
                 >
-                    Women
-                </a>
                 <a
                     href="/products/products.html?category=jewelery"
                     class="category-btn"
+                    >Jewelery</a
                 >
-                    Jewelery
-                </a>
                 <a
                     href="/products/products.html?category=electronics"
                     class="category-btn"
+                    >Electronics</a
                 >
-                    Electronics
-                </a>
-            </div>
-            <!-- /Jesper -->
+            </nav>
 
-            <!-- Felisia: Meny & varukorg -->
+            <!-- Sektion med varukorg + hamburgermeny -->
             <section id="menu">
+                <!-- Varukorgsikon -->
                 <img
                     id="cart"
                     src="/images/shopping-bag.png"
-                    alt="Shoppingpåse"
+                    alt="Länk till varukorgen"
                 />
 
-                <!-- Hamburger-meny -->
+                <!-- Mobilmeny -->
                 <nav class="hamburger-menu">
                     <button id="hamburgerBtn">
-                        <img src="/images/hamburger.png" alt="Menyikon" />
+                        <img
+                            src="/images/hamburger.png"
+                            alt="Hamburgerikon för att öppna mobilmenyn"
+                        />
                     </button>
 
+                    <!-- Själva mobilmenyn -->
                     <ul class="hamburgerMenu">
                         <li class="menuLink">
                             <a href="/products/products.html">Products</a>
@@ -85,15 +86,21 @@
                                 >Jewelery</a
                             >
                         </li>
+                        <li class="menuLink">
+                            <a
+                                href="/products/products.html?category=electronics"
+                                >Electronics</a
+                            >
+                        </li>
                     </ul>
                 </nav>
             </section>
-            <!-- /Felisia -->
         </header>
 
-        <!-- ========== HUVUDINNEHÅLL ========== -->
+        <!-- =====================================================
+             MAIN-INNEHÅLL
+        ====================================================== -->
 
-        <!-- Hanna: Om-oss-sektion -->
         <main>
             <section class="about">
                 <h1 class="about-title">Om oss</h1>
@@ -102,46 +109,54 @@
                     Vi på The Street Store saknade en plats där man enkelt kan
                     hitta det mesta man behöver i vardagen. Istället för att
                     leta runt på olika sidor för kläder, accessoarer och teknik,
-                    har vi samlat allt på ett och samma ställe. Våra produkter
-                    är noggrant utvalda för att vara både snygga, hållbara och
-                    användbara – för dig som vill ha stil och funktion i ett.
+                    har vi samlat allt på ett ställe.
                 </p>
 
                 <p class="about-text">
-                    Vi grundades för bara ett år sedan, men vår ambition har
-                    varit tydlig från början: att göra din vardag enklare genom
-                    att samla det du faktiskt behöver – på ett ställe.
+                    Vi grundades för bara ett år sedan, men vår ambition är
+                    tydlig: att göra din vardag enklare genom att samla det du
+                    faktiskt behöver – på ett ställe.
                 </p>
 
-                <!-- Jul-REA-sektion -->
+                <!-- Julrea-sektion -->
                 <div class="rea-bild">
-                    <img src="/images/Rea2.jpg" alt="Julrea-bild" />
+                    <img
+                        src="/images/Rea2.jpg"
+                        alt="Julrea-bild med röd bakgrund för kampanj på The Street Store"
+                    />
                     <h2 class="jul-rea">Julrea</h2>
                     <p class="image-text">
-                        Utvalda produkter till bättre pris – perfekt för dig som
-                        vill ge något snyggt, hållbart och användbart i jul.
+                        Utvalda produkter till bättre pris – perfekt för julens
+                        gåvor.
                     </p>
                 </div>
             </section>
         </main>
-        <!-- /Hanna -->
 
-        <!-- ========== FOOTER ========== -->
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
 
-        <!-- Felisia: Footer -->
         <footer>
             <p>© 2025 The Street Store</p>
+
+            <!-- Sociala medier -->
             <section id="socialMedia">
-                <a href="#"><img src="/images/insta-icon.png" alt="" /></a>
-                <a href="#"><img src="/images/fb-icon.png" alt="" /></a>
+                <a href="#">
+                    <img src="/images/insta-icon.png" alt="Instagram-ikon" />
+                </a>
+                <a href="#">
+                    <img src="/images/fb-icon.png" alt="Facebook-ikon" />
+                </a>
             </section>
-            <search id="contact">
+
+            <!-- Kontaktinformation -->
+            <section id="contact">
                 <h1>Kontakta oss</h1>
                 <p>010-144 444</p>
                 <p>contact@thestreetstore</p>
-            </search>
+            </section>
         </footer>
-        <!-- /Felisia -->
 
         <script src="index.js"></script>
     </body>
