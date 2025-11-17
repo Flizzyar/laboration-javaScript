@@ -276,6 +276,10 @@ footer {
     text-align: center;
 }
 
+#socialMedia img {
+    width: 2rem;
+}
+
 /* 8.1 Media queries */
 @media (min-width: 980px) {
     header {
@@ -303,7 +307,7 @@ footer {
     .hero-buttons {
         top: 70%;
         width: auto;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         gap: 20px;
     }
     .about {

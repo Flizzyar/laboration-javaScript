@@ -5,6 +5,11 @@ hamburger.addEventListener('click', () => {
     menu.classList.toggle('active')
 })
 
+const cart = document.querySelector('#cart')
+cart.addEventListener('click', () => {
+    alert('Du har inget i din varukorg!')
+})
+
 // Ladda kategorier
 async function loadCategories() {
     const container = document.getElementById('categoryButtons')

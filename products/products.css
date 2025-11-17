@@ -208,6 +208,10 @@ footer {
     text-align: center;
 }
 
+#socialMedia img {
+    width: 2rem;
+}
+
 /* 7.1 Media queries */
 @media (min-width: 980px) {
     header img {
