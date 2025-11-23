@@ -96,6 +96,14 @@ header::before {
     z-index: 1;
 }
 
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 2;
+}
+
 /* ============================================================
    4. Meny och varukorg
 ============================================================ */
