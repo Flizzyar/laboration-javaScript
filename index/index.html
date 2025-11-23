@@ -1,3 +1,24 @@
+<!-- ============================================================
+     HTML ÖVERSIKT / INNEHÅLLSFÖRTECKNING
+     ------------------------------------------------------------
+     1. Sidhuvud (Header)
+         1.1 Logotyp
+         1.2 Huvudrubrik
+         1.3 Knappar för kategorier (desktop)
+         1.4 Menysektion (varukorg + hamburgermeny)
+             1.4.1 Varukorg
+             1.4.2 Hamburger-meny
+                 1.4.2.1 Menyknapp
+                 1.4.2.2 Navigeringslänkar
+     2. Main-sektion
+         2.1 Om oss
+         2.2 Julrea-sektion
+     3. Sidfot (Footer)
+         3.1 Sociala medier
+         3.2 Kontaktinformation
+     4. Script
+============================================================ -->
+
 <!DOCTYPE html>
 <html lang="sv">
     <head>
@@ -8,12 +29,11 @@
     </head>
 
     <body>
-        <!-- =====================================================
-             SIDHUVUD
-        ====================================================== -->
-
+        <!-- ============================================================
+         1. SIDHUVUD
+    ============================================================ -->
         <header>
-            <!-- Logotyp som länkar till startsidan -->
+            <!-- 1.1 Logotyp (länk till startsidan) -->
             <a href="index.html">
                 <img
                     id="logo"
@@ -22,43 +42,45 @@
                 />
             </a>
 
+            <!-- 1.2 Huvudrubrik -->
             <h1>The Street Store</h1>
 
-            <!-- Desktop-knappar för kategorier -->
-            <nav class="hero-buttons">
+            <!-- 1.3 Knappar för produktkategorier (desktop) -->
+            <section class="hero-buttons">
                 <a
                     href="/products/products.html?category=men's clothing"
                     class="category-btn"
-                    >Men</a
+                    >Herr</a
                 >
                 <a
                     href="/products/products.html?category=women's clothing"
                     class="category-btn"
-                    >Women</a
+                    >Dam</a
                 >
                 <a
                     href="/products/products.html?category=jewelery"
                     class="category-btn"
-                    >Jewelery</a
+                    >Smycken</a
                 >
                 <a
                     href="/products/products.html?category=electronics"
                     class="category-btn"
-                    >Electronics</a
+                    >Elektronik</a
                 >
-            </nav>
+            </section>
 
-            <!-- Sektion med varukorg + hamburgermeny -->
+            <!-- 1.4 Menysektion (varukorg + mobilmeny) -->
             <section id="menu">
-                <!-- Varukorgsikon -->
+                <!-- 1.4.1 Varukorg -->
                 <img
                     id="cart"
                     src="/images/shopping-bag.png"
                     alt="Länk till varukorgen"
                 />
 
-                <!-- Mobilmeny -->
+                <!-- 1.4.2 Hamburger-meny -->
                 <nav class="hamburger-menu">
+                    <!-- 1.4.2.1 Menyknapp -->
                     <button id="hamburgerBtn">
                         <img
                             src="/images/hamburger.png"
@@ -66,32 +88,32 @@
                         />
                     </button>
 
-                    <!-- Själva mobilmenyn -->
+                    <!-- 1.4.2.2 Navigeringslänkar -->
                     <ul class="hamburgerMenu">
                         <li class="menuLink">
-                            <a href="/products/products.html">Products</a>
+                            <a href="/products/products.html">Produkter</a>
                         </li>
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=men's clothing"
-                                >Men</a
+                                >Herr</a
                             >
                         </li>
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=women's clothing"
-                                >Women</a
+                                >Dam</a
                             >
                         </li>
                         <li class="menuLink">
                             <a href="/products/products.html?category=jewelery"
-                                >Jewelery</a
+                                >Smycken</a
                             >
                         </li>
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=electronics"
-                                >Electronics</a
+                                >Elektronik</a
                             >
                         </li>
                     </ul>
@@ -99,28 +121,26 @@
             </section>
         </header>
 
-        <!-- =====================================================
-             MAIN-INNEHÅLL
-        ====================================================== -->
-
+        <!-- ============================================================
+         2. MAIN-SEKTION
+    ============================================================ -->
         <main>
+            <!-- 2.1 Om oss -->
             <section class="about">
                 <h1 class="about-title">Om oss</h1>
-
                 <p class="about-text">
                     Vi på The Street Store saknade en plats där man enkelt kan
                     hitta det mesta man behöver i vardagen. Istället för att
                     leta runt på olika sidor för kläder, accessoarer och teknik,
                     har vi samlat allt på ett ställe.
                 </p>
-
                 <p class="about-text">
                     Vi grundades för bara ett år sedan, men vår ambition är
                     tydlig: att göra din vardag enklare genom att samla det du
                     faktiskt behöver – på ett ställe.
                 </p>
 
-                <!-- Julrea-sektion -->
+                <!-- 2.2 Julrea-sektion -->
                 <div class="rea-bild">
                     <img
                         src="/images/Rea2.jpg"
@@ -135,31 +155,33 @@
             </section>
         </main>
 
-        <!-- =====================================================
-             FOOTER
-        ====================================================== -->
-
+        <!-- ============================================================
+         3. SIDFOT
+    ============================================================ -->
         <footer>
             <p>© 2025 The Street Store</p>
 
-            <!-- Sociala medier -->
+            <!-- 3.1 Sociala medier -->
             <section id="socialMedia">
-                <a href="#">
-                    <img src="/images/insta-icon.png" alt="Instagram-ikon" />
-                </a>
-                <a href="#">
-                    <img src="/images/fb-icon.png" alt="Facebook-ikon" />
-                </a>
+                <a href="#"
+                    ><img src="/images/insta-icon.png" alt="Instagram-ikon"
+                /></a>
+                <a href="#"
+                    ><img src="/images/fb-icon.png" alt="Facebook-ikon"
+                /></a>
             </section>
 
-            <!-- Kontaktinformation -->
+            <!-- 3.2 Kontaktinformation -->
             <section id="contact">
-                <h1>Kontakta oss</h1>
+                <h2>Kontakta oss</h2>
                 <p>010-144 444</p>
                 <p>contact@thestreetstore</p>
             </section>
         </footer>
 
+        <!-- ============================================================
+         4. SCRIPT
+    ============================================================ -->
         <script src="index.js"></script>
     </body>
 </html>

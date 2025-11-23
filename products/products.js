@@ -5,29 +5,31 @@
 // 2. HANTERA VARUKORGS-IKON
 // 3. LADDA OCH VISA KATEGORIER
 // 4. LADDA OCH VISA PRODUKTER
-// 5. LÄS URL-PARAMETRAR
-// 6. STARTA SIDAN
+// 5. HÄMTA API-BILDER FÖR NYA PRODUKTER
+// 6. LÄS URL-PARAMETRAR
+// 7. STARTA SIDAN
+// 8. LÄGG TILL NY PRODUKT VIA FORMULÄR
 // ============================================================
 
 // ============================================================
 // 1. HANTERA HAMBURGERMENY
 // ============================================================
 
-// Hämta element: container och meny
-const hamburger = document.querySelector('.hamburger-menu')
-const menu = document.querySelector('.hamburgerMenu')
-const button = document.querySelector('#hamburgerBtn')
+// Hämta element
+const hamburger = document.querySelector('.hamburger-menu') // Wrapper
+const menu = document.querySelector('.hamburgerMenu') // Själva menyn
+const button = document.querySelector('#hamburgerBtn') // Hamburgerknappen
+let customProducts = [] // Array för egna produkter
 
-// Visa/dölj menyn vid klick på hamburgermenyn
-hamburger.addEventListener('click', () => {
+// 1.2 Visa/dölj menyn vid klick
+button.addEventListener('click', (event) => {
+    event.stopPropagation() // Förhindrar att klicket stänger menyn direkt
     menu.classList.toggle('active')
 })
 
-// Stäng menyn om användaren klickar utanför menyn
+// 1.3 Stäng meny om man klickar utanför
 document.addEventListener('click', (event) => {
-    // Kontrollera om menyn är öppen
     if (menu.classList.contains('active')) {
-        // Klicket är inte på menyn eller hamburgerknappen → stäng menyn
         if (!menu.contains(event.target) && !button.contains(event.target)) {
             menu.classList.remove('active')
         }
@@ -40,7 +42,7 @@ document.addEventListener('click', (event) => {
 
 const cart = document.querySelector('#cart')
 
-// Visa ett meddelande när användaren klickar på varukorgen
+// Temporär alert vid klick på varukorg
 cart.addEventListener('click', () => {
     alert('Du har inget i din varukorg!')
 })
@@ -53,23 +55,28 @@ async function loadCategories() {
     const container = document.getElementById('categoryButtons')
 
     try {
-        // Hämta kategorier från API
         const response = await fetch(
             'https://fakestoreapi.com/products/categories'
         )
         const categories = await response.json()
 
-        // Skapa knapp för "Alla" produkter
+        // Skapa "Alla"-knapp
         const allButton = document.createElement('button')
         allButton.textContent = 'Alla'
-        allButton.addEventListener('click', () => loadProducts())
+        allButton.addEventListener('click', () => {
+            localStorage.setItem('lastCategory', '')
+            loadProducts()
+        })
         container.appendChild(allButton)
 
-        // Skapa knapp för varje kategori
+        // Skapa en knapp för varje kategori
         categories.forEach((category) => {
             const button = document.createElement('button')
             button.textContent = category
-            button.addEventListener('click', () => loadProducts(category))
+            button.addEventListener('click', () => {
+                localStorage.setItem('lastCategory', category)
+                loadProducts(category)
+            })
             container.appendChild(button)
         })
     } catch (error) {
@@ -83,14 +90,11 @@ async function loadCategories() {
 
 async function loadProducts(category = '') {
     const container = document.getElementById('products')
-
-    // Visa laddningsmeddelande
     container.innerHTML = '<p>Laddar produkter...</p>'
 
     try {
         let url = 'https://fakestoreapi.com/products'
 
-        // Använd kategori-URL om en kategori är vald
         if (category && category !== 'Alla') {
             url = `https://fakestoreapi.com/products/category/${encodeURIComponent(
                 category
@@ -100,10 +104,8 @@ async function loadProducts(category = '') {
         const response = await fetch(url)
         const products = await response.json()
 
-        // Rensa container
-        container.innerHTML = ''
+        container.innerHTML = '' // Töm tidigare produkter
 
-        // Skapa HTML för varje produkt
         products.forEach((product) => {
             const div = document.createElement('div')
             div.className = 'product'
@@ -112,7 +114,7 @@ async function loadProducts(category = '') {
                 <img src="${product.image}" alt="${product.title}">
                 <h2>${product.title}</h2>
                 <p>${product.description}</p>
-                <div class="price">${product.price.toFixed(2)} USD</div>
+                <div class="price">${product.price.toFixed(2)} kr</div>
             `
 
             container.appendChild(div)
@@ -124,15 +126,95 @@ async function loadProducts(category = '') {
 }
 
 // ============================================================
-// 5. LÄS URL-PARAMETRAR
+// 5. HÄMTA API-BILDER FÖR NYA PRODUKTER
+// ============================================================
+
+let apiImages = []
+
+async function loadApiImages() {
+    const response = await fetch('https://fakestoreapi.com/products')
+    const products = await response.json()
+
+    apiImages = products
+
+    const imageSelect = document.querySelector('#imageSelect')
+
+    products.forEach((p) => {
+        const option = document.createElement('option')
+        option.value = p.image
+        option.textContent = p.title
+        imageSelect.appendChild(option)
+    })
+}
+
+function loadCustomProducts() {
+    const saved = localStorage.getItem('customProducts')
+    if (!saved) return
+
+    customProducts = JSON.parse(saved)
+    customProducts.forEach((product) => {
+        renderCustomProduct(product)
+    })
+}
+
+// ============================================================
+// 6. LÄS URL-PARAMETRAR
 // ============================================================
 
 const urlParams = new URLSearchParams(window.location.search)
 const category = urlParams.get('category')
 
 // ============================================================
-// 6. STARTA SIDAN: LADDA KATEGORIER + PRODUKTER
+// 7. STARTA SIDAN
 // ============================================================
 
 loadCategories()
-loadProducts(category)
+
+// Om en kategori sparats i localStorage → använd den
+const savedCategory = localStorage.getItem('lastCategory')
+loadProducts(savedCategory || category)
+
+loadCustomProducts()
+loadApiImages()
+
+// ============================================================
+// 8. LÄGG TILL NY PRODUKT VIA FORMULÄR
+// ============================================================
+
+const productForm = document.querySelector('#productForm')
+const productGrid = document.querySelector('#products')
+
+productForm.addEventListener('submit', (event) => {
+    event.preventDefault() // Förhindra sidladdning
+
+    // Hämta värden från formulär
+    const title = document.querySelector('#title').value
+    const description = document.querySelector('#description').value
+    const price = document.querySelector('#price').value
+    const image = document.querySelector('#imageSelect').value
+
+    // Skapa nytt produktkort
+    const productDiv = document.createElement('div')
+    productDiv.classList.add('product')
+
+    productDiv.innerHTML = `
+        <img src="${image}" alt="${title}">
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <div class="price">${Number(price).toFixed(2)} kr</div>
+    `
+
+    // Lägg till "Ta bort"-knapp
+    const deleteBtn = document.createElement('button')
+    deleteBtn.textContent = 'Ta bort'
+    deleteBtn.classList.add('delete-btn')
+
+    deleteBtn.addEventListener('click', () => {
+        productDiv.remove()
+    })
+
+    productDiv.appendChild(deleteBtn)
+    productGrid.appendChild(productDiv)
+
+    productForm.reset() // Töm formuläret
+})

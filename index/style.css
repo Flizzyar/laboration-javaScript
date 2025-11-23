@@ -1,48 +1,48 @@
 /* ============================================================
-   CSS ÖVERSIKT / INNEHÅLLSFÖRTECKNING
-   ------------------------------------------------------------
-   1. Typsnitt
-       1.1 @font-face
-   2. Globala inställningar
-       2.1 Universalselector (*)
-       2.2 Body
-   3. Header / Hero
-       3.1 Header-behållare
-       3.2 Header overlay (::before)
-   4. Meny och varukorg
-       4.1 Menybehållare (#menu)
-       4.2 Varukorgsikon (#cart)
-       4.3 Bilder i headern
-       4.4 Hamburgermeny-länkar
-       4.5 Hover-effekt på länkar
-       4.6 Logotyp (#logo)
-       4.7 Menylänkar (.menuLink)
-       4.8 Hamburgermeny (stängd)
-       4.9 Hamburgermeny (aktiv)
-       4.10 Hamburgerknapp
-   5. Overlay-knappar (kategori-knappar i hero)
-       5.1 Grid-behållare
-       5.2 Individuella knappar
-       5.3 Hover-effekt
-   6. Main-innehåll
-       6.1 Main
-       6.2 Om-oss-sektion
-           6.2.1 Titel
-           6.2.2 Brödtext
-       6.3 Jul-REA-sektion
-           6.3.1 Container
-           6.3.2 Bild
-           6.3.3 REA-titel
-           6.3.4 Undertext
-   7. Footer
-       7.1 Footer-botten
-   8. Responsiv design
-       8.1 Media query (min-width: 980px)
-   ============================================================ */
+     CSS ÖVERSIKT / INNEHÅLLSFÖRTECKNING
+     ------------------------------------------------------------
+     1. Typsnitt
+         1.1 @font-face
+     2. Globala inställningar
+         2.1 Universalselector (*)
+         2.2 Body
+     3. Header / Hero
+         3.1 Header container
+         3.2 Header overlay (::before)
+     4. Meny och varukorg
+         4.1 Menybehållare (#menu)
+         4.2 Varukorgsikon (#cart)
+         4.3 Bilder i header
+         4.4 Hamburgermeny-länkar
+         4.5 Hover-effekt på länkar
+         4.6 Logotyp (#logo)
+         4.7 Menylänkar (.menuLink)
+         4.8 Dold hamburgermeny
+         4.9 Aktiv hamburgermeny
+         4.10 Hamburgerknapp (#hamburgerBtn)
+     5. Overlay-knappar (kategori-knappar)
+         5.1 Grid-behållare
+         5.2 Individuella knappar
+         5.3 Hover-effekt
+     6. Main-innehåll
+         6.1 Om-oss-sektion
+             6.1.1 Titel
+             6.1.2 Brödtext
+         6.2 Jul-REA-sektion
+             6.2.1 Container
+             6.2.2 Bild
+             6.2.3 REA-titel
+             6.2.4 Undertext
+     7. Footer
+         7.1 Footer-botten
+         7.2 Sociala medier
+     8. Responsiv design
+         8.1 Media query (min-width: 980px)
+============================================================ */
 
 /* ============================================================
    1. Typsnitt
-   ============================================================ */
+============================================================ */
 
 /* 1.1 Importerar eget typsnitt */
 @font-face {
@@ -52,18 +52,18 @@
 
 /* ============================================================
    2. Globala inställningar
-   ============================================================ */
+============================================================ */
 
-/* 2.1 Grundreset + standardfont */
+/* 2.1 Grundreset och standardfont */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     font-family: AlanSans, Arial, sans-serif;
     font-size: 1rem;
     color: #080f25;
 }
 
-/* 2.2 Gör att footern alltid hamnar längst ner */
+/* 2.2 Body för att alltid ha footer längst ner */
 body {
     display: flex;
     flex-direction: column;
@@ -72,14 +72,14 @@ body {
 
 /* ============================================================
    3. Header / Hero
-   ============================================================ */
+============================================================ */
 
-/* 3.1 Huvudcontainer med hero-bild */
+/* 3.1 Header container med hero-bild */
 header {
     position: relative;
-    background-color: #8b7566;
     display: flex;
     justify-content: space-between;
+    background-color: #8b7566;
     background-image: url(/images/hero2.jpg);
     background-position: center top;
     background-repeat: no-repeat;
@@ -87,7 +87,7 @@ header {
     height: 30rem;
 }
 
-/* 3.2 Transparent overlay över hero-bilden */
+/* 3.2 Transparent overlay ovanpå hero-bilden */
 header::before {
     content: '';
     position: absolute;
@@ -98,9 +98,9 @@ header::before {
 
 /* ============================================================
    4. Meny och varukorg
-   ============================================================ */
+============================================================ */
 
-/* 4.1 Container för hamburgermeny + varukorg */
+/* 4.1 Container för varukorg + hamburger-meny */
 #menu {
     display: flex;
 }
@@ -111,26 +111,26 @@ header::before {
     padding-top: 1.2rem;
 }
 
-/* 4.3 Allmän stil för bilder i headern */
+/* 4.3 Bilder i headern */
 header img {
     display: flex;
     height: 30px;
     padding: 0.5rem 1rem;
     position: relative;
-    z-index: 20;
+    z-index: 11;
     cursor: pointer;
 }
 
-/* 4.4 Länkar i hamburgermenyn */
+/* 4.4 Länkar i hamburgermeny */
 header .hamburgerMenu li a {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
     display: inline-block;
+    transition: all 0.3s ease;
 }
 
-/* 4.5 Hover-animation */
+/* 4.5 Hover-effekt för länkar */
 header .hamburgerMenu li a:hover {
     transform: translateY(-3px);
 }
@@ -149,27 +149,27 @@ header .hamburgerMenu li a:hover {
 /* 4.8 Dold hamburgermeny (default) */
 header .hamburgerMenu {
     position: fixed;
-    top: 0%;
+    top: 0;
     left: 0;
     transform: translateX(100%);
     width: 100%;
-    height: calc(100vh);
-    transition: 500ms;
+    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #8b7566;
+    transition: 500ms;
     z-index: 10;
     list-style: none;
 }
 
-/* 4.9 Synlig hamburgermeny */
+/* 4.9 Aktiv hamburgermeny */
 header .hamburgerMenu.active {
     transform: translateX(0);
 }
 
-/* 4.10 Knappen som öppnar/stänger menyn */
+/* 4.10 Hamburgerknapp */
 #hamburgerBtn {
     background: transparent;
     border: none;
@@ -178,27 +178,18 @@ header .hamburgerMenu.active {
 
 /* ============================================================
    5. Overlay-knappar (kategori-knappar i hero)
-   ============================================================ */
+============================================================ */
 
-header h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.7rem;
-    z-index: 2;
-}
-
-/* 5.1 Grid-behållare */
+/* 5.1 Grid-behållare för knappar */
 .hero-buttons {
     position: absolute;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 90%;
-    cursor: pointer;
     z-index: 2;
 }
 
@@ -210,62 +201,48 @@ header h1 {
     text-decoration: none;
     font-weight: bold;
     border-radius: 8px;
-    transition: background-color 0.1s;
     text-align: center;
+    transition: background-color 0.1s;
 }
 
-/* 5.3 Hover-effekt */
+/* 5.3 Hover-effekt för knappar */
 .hero-buttons .category-btn:hover {
     background-color: rgba(8, 15, 37, 1);
 }
 
 /* ============================================================
    6. Main-innehåll
-   ============================================================ */
+============================================================ */
 
-/* 6.1 Fyller ut mellan header och footer */
-main {
-    flex: 1;
-}
-
-/* -------------------- 6.2 Om-oss-sektion -------------------- */
-
-/* Behållare */
+/* -------------------- 6.1 Om-oss-sektion -------------------- */
 .about {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* 6.2.1 Titel */
 .about-title {
     font-size: 1.8rem;
     font-weight: bold;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin: 2rem 0 0.5rem 0;
     text-align: center;
 }
 
-/* 6.2.2 Text */
 .about-text {
     display: block;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin: 1rem auto;
-    text-align: center;
     max-width: 400px;
+    margin: 1rem auto;
+    line-height: 1.5rem;
+    text-align: center;
 }
 
-/* -------------------- 6.3 Jul-REA -------------------- */
-
-/* 6.3.1 Container för bild + text */
+/* -------------------- 6.2 Jul-REA -------------------- */
 .rea-bild {
     position: relative;
     text-align: center;
     margin-top: 2rem;
 }
 
-/* 6.3.2 Bilden */
 .rea-bild img {
     width: 100%;
     height: auto;
@@ -273,7 +250,6 @@ main {
     border-radius: 6px;
 }
 
-/* 6.3.3 Titel (mobil) */
 .jul-rea {
     position: static;
     text-align: center;
@@ -283,18 +259,16 @@ main {
     font-size: 1.5rem;
 }
 
-/* 6.3.4 Undertext (mobil) */
 .image-text {
     position: static;
     text-align: center;
     color: black;
-    font-size: 1rem;
     margin: 1.5rem 0 2rem 0;
 }
 
 /* ============================================================
    7. Footer
-   ============================================================ */
+============================================================ */
 
 footer {
     padding: 2rem;
@@ -308,10 +282,9 @@ footer {
 
 /* ============================================================
    8. Responsiv design
-   ============================================================ */
+============================================================ */
 
 @media (min-width: 980px) {
-    /* Större hero-sektion */
     header {
         height: 40rem;
     }
@@ -320,16 +293,16 @@ footer {
         height: 2rem;
     }
 
-    /* Menyn placeras i högerkant på desktop */
+    /* Meny i högerkant på desktop */
     header .menu,
     header .hamburgerMenu {
-        top: 0px;
-        height: 100vh;
+        top: 0;
         left: 80%;
         width: 20%;
+        height: 100vh;
     }
 
-    /* Layout för hero-knappar */
+    /* Hero-knappar på desktop */
     .hero-buttons {
         top: 70%;
         width: auto;
@@ -341,7 +314,7 @@ footer {
         font-size: 3rem;
     }
 
-    /* Om-oss text radbredd och placering */
+    /* Om-oss text */
     .about {
         max-width: 1200px;
         margin: 0 auto;
@@ -359,10 +332,9 @@ footer {
         line-height: 1.8rem;
         max-width: 900px;
         margin-bottom: 2rem;
-        text-align: left;
     }
 
-    /* REA-overlay på desktop */
+    /* REA-overlay */
     .jul-rea {
         position: absolute;
         top: 10%;

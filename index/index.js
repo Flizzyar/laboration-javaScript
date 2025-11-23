@@ -25,17 +25,17 @@ const menu = document.querySelector('.hamburgerMenu')
 const button = document.querySelector('#hamburgerBtn')
 
 // 1.2 Visa/dölj meny vid klick på hamburgerknappen
-// När användaren klickar på hamburgermenyn växlar vi klassen "active"
-// Denna klass används i CSS för att animera menyn in/ut
-hamburger.addEventListener('click', () => {
+// När användaren klickar på knappen växlar vi klassen "active"
+// CSS använder denna klass för att animera menyn in/ut
+button.addEventListener('click', (event) => {
+    event.stopPropagation() // Förhindrar att klicket bubblar upp och stänger menyn direkt
     menu.classList.toggle('active')
 })
 
 // 1.3 Stäng meny vid klick utanför
-// Om användaren klickar någonstans på sidan utanför menyn → stäng menyn
+// Om menyn är öppen och användaren klickar någon annanstans → stäng menyn
 document.addEventListener('click', (event) => {
     if (menu.classList.contains('active')) {
-        // Endast om menyn är öppen
         // Klicket är inte på menyn och inte på hamburgerknappen
         if (!menu.contains(event.target) && !button.contains(event.target)) {
             menu.classList.remove('active')

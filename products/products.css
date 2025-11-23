@@ -1,42 +1,43 @@
 /* ============================================================
-   CSS ÖVERSIKT / INNEHÅLLSFÖRTECKNING
-   ------------------------------------------------------------
-   1. Typsnitt
-       1.1 @font-face
-   2. Globala inställningar
-       2.1 Universalselector (*)
-       2.2 Body
-   3. Header
-       3.1 Header-container
-   4. Meny och varukorg
-       4.1 Menycontainer (#menu)
-       4.2 Varukorg (#cart)
-       4.3 Bilder i header (header img)
-       4.4 Hamburgermeny-länkar
-       4.5 Hover-effekt på länkar
-       4.6 Menylänkar (.menuLink)
-       4.7 Hamburgermeny (stängd)
-       4.8 Hamburgermeny aktiv
-       4.9 Hamburgerknapp
-   5. Main / Produkter
-       5.1 Main baslayout
-       5.2 Rubriker
-       5.3 Kategoriknappar
-       5.4 Produktgrid
-       5.5 Produktkort
-       5.6 Produktbild
-       5.7 Produkttitlar och text
-       5.8 Pris
-   6. Footer
-       6.1 Footer baslayout
-       6.2 Sociala medier
-   7. Media queries
-       7.1 Desktop (min-width: 980px)
-   ============================================================ */
+     CSS ÖVERSIKT / INNEHÅLLSFÖRTECKNING
+     ------------------------------------------------------------
+     1. Typsnitt
+         1.1 @font-face
+     2. Globala inställningar
+         2.1 Reset + standardfont
+         2.2 Body
+     3. Header
+         3.1 Header-container
+     4. Meny och varukorg
+         4.1 Menycontainer (#menu)
+         4.2 Varukorg (#cart)
+         4.3 Bilder i header
+         4.4 Hamburgermeny-länkar
+         4.5 Hover-effekt på länkar
+         4.6 Menypunkter (.menuLink)
+         4.7 Dold hamburgermeny
+         4.8 Aktiv hamburgermeny
+         4.9 Hamburgerknapp (#hamburgerBtn)
+     5. Main / Produkter
+         5.1 Main baslayout
+         5.2 Rubriker
+         5.3 Kategoriknappar
+         5.4 Produktgrid
+         5.5 Produktkort
+         5.6 Produktbild
+         5.7 Produkttitel & beskrivning
+         5.8 Pris
+         5.9 Formulär för ny produkt
+     6. Footer
+         6.1 Baslayout
+         6.2 Sociala medier
+     7. Media queries
+         7.1 Desktop (min-width: 980px)
+============================================================ */
 
 /* ============================================================
    1. Typsnitt
-   ============================================================ */
+============================================================ */
 
 /* 1.1 Import av eget typsnitt */
 @font-face {
@@ -46,7 +47,7 @@
 
 /* ============================================================
    2. Globala inställningar
-   ============================================================ */
+============================================================ */
 
 /* 2.1 Reset + standardfont */
 * {
@@ -57,7 +58,7 @@
     color: #080f25;
 }
 
-/* 2.2 Gör så footern alltid hamnar i botten */
+/* 2.2 Body-layout, footer alltid i botten */
 body {
     display: flex;
     flex-direction: column;
@@ -67,9 +68,9 @@ body {
 
 /* ============================================================
    3. Header
-   ============================================================ */
+============================================================ */
 
-/* 3.1 Headerlayout */
+/* 3.1 Header-layout */
 header {
     background-color: #8b7566;
     display: flex;
@@ -79,9 +80,9 @@ header {
 
 /* ============================================================
    4. Meny och varukorg
-   ============================================================ */
+============================================================ */
 
-/* 4.1 Wrapper för hamburgermeny + varukorg */
+/* 4.1 Container för hamburgermeny + varukorg */
 #menu {
     display: flex;
 }
@@ -92,7 +93,7 @@ header {
     padding-top: 1.2rem;
 }
 
-/* 4.3 Alla bilder i headern */
+/* 4.3 Alla bilder i header */
 header img {
     display: flex;
     height: 30px;
@@ -102,66 +103,66 @@ header img {
     cursor: pointer;
 }
 
-/* 4.4 Länkarna i hamburgermenyn */
+/* 4.4 Länkar i hamburgermeny */
 header .hamburgerMenu li a {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
     display: inline-block;
+    transition: all 0.3s ease;
 }
 
-/* 4.5 Hover-animation */
+/* 4.5 Hover-effekt */
 header .hamburgerMenu li a:hover {
     transform: translateY(-3px);
 }
 
-/* Logo-storlek */
+/* 4.6 Logo-storlek */
 #logo {
     height: 3rem;
 }
 
-/* 4.6 Punkter i menyn */
+/* 4.7 Menypunkter */
 .menuLink {
     list-style: none;
     padding: 1rem;
 }
 
-/* 4.7 Dold hamburgermeny (default) */
+/* 4.8 Dold hamburgermeny (default) */
 header .hamburgerMenu {
     position: fixed;
-    top: 0%;
+    top: 0;
     left: 0;
     transform: translateX(100%);
     width: 100%;
-    height: calc(100vh);
-    transition: 500ms;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background-color: #8b7566;
+    transition: 500ms;
     z-index: 10;
     list-style: none;
 }
 
-/* 4.8 Aktiv → menyn visas */
+/* 4.9 Aktiv hamburgermeny */
 header .hamburgerMenu.active {
     transform: translateX(0);
 }
 
-/* 4.9 Knappen som öppnar/stänger menyn */
+/* 4.10 Hamburgerknapp */
 #hamburgerBtn {
-    background-color: transparent;
-    border-style: none;
+    background: transparent;
+    border: none;
     padding-top: 0.5rem;
 }
 
 /* ============================================================
    5. Main / Produkter
-   ============================================================ */
+============================================================ */
 
-/* 5.1 Grundlayout */
+/* 5.1 Main baslayout */
 main {
     flex: 1;
     padding: 20px;
@@ -199,16 +200,17 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 /* 5.5 Produktkort */
 .product {
-    background: white;
-    border-radius: 12px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     transition: transform 0.2s ease;
 }
 
@@ -221,7 +223,7 @@ h1 {
     max-width: 100%;
     height: 200px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
@@ -245,9 +247,53 @@ h1 {
     font-size: 1rem;
 }
 
+/* 5.9 Formulär för ny produkt */
+#addProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#addProduct form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+#addProduct input,
+#addProduct button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#addProduct button {
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+/* Delete-knapp på produktkort */
+.product button.delete-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
 /* ============================================================
    6. Footer
-   ============================================================ */
+============================================================ */
 
 /* 6.1 Baslayout */
 footer {
@@ -263,7 +309,7 @@ footer {
 
 /* ============================================================
    7. Media queries
-   ============================================================ */
+============================================================ */
 
 @media (min-width: 980px) {
     /* 7.1 Headerbilder på desktop */
@@ -271,10 +317,10 @@ footer {
         height: 2rem;
     }
 
-    /* Hamburgermeny placeras i högerkant */
+    /* Hamburgermeny på desktop i högerkant */
     header .hamburgerMenu {
-        top: 0px;
-        height: calc(100vh);
+        top: 0;
+        height: 100vh;
         left: 80%;
         width: 20%;
     }

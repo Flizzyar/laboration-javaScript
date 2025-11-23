@@ -3,19 +3,20 @@
      ------------------------------------------------------------
      1. Sidhuvud (Header)
          1.1 Logotyp
-         1.2 Menysektion
-             1.2.1 Varukorgsikon
+         1.2 Meny
+             1.2.1 Varukorg
              1.2.2 Hamburger-meny
                  1.2.2.1 Menyknapp
                  1.2.2.2 Navigeringslänkar
      2. Main-sektion
          2.1 Kategoriknappar
          2.2 Produktgrid
+         2.3 Formulär för ny produkt
      3. Sidfot (Footer)
          3.1 Sociala medier
          3.2 Kontaktinformation
      4. Script
-   ============================================================ -->
+============================================================ -->
 
 <!DOCTYPE html>
 <html lang="sv">
@@ -28,10 +29,10 @@
 
     <body>
         <!-- ============================================================
-             1. SIDHUVUD
-        ============================================================ -->
+         1. SIDHUVUD
+    ============================================================ -->
         <header>
-            <!-- 1.1 Logotyp (länk tillbaka till startsidan) -->
+            <!-- 1.1 Logotyp (länk till startsidan) -->
             <a href="/index/index.html">
                 <img
                     id="logo"
@@ -40,19 +41,19 @@
                 />
             </a>
 
-            <!-- 1.2 Menysektion (varukorg + hamburgermeny) -->
+            <!-- 1.2 Meny (varukorg + hamburgermeny) -->
             <div id="menu">
-                <!-- 1.2.1 Varukorgsikon -->
+                <!-- 1.2.1 Varukorg -->
                 <img
                     id="cart"
                     src="/images/shopping-bag.png"
-                    alt="Ikon som visar din varukorg"
+                    alt="Varukorgsikon"
                 />
 
                 <!-- 1.2.2 Hamburger-meny -->
                 <nav class="hamburger-menu">
-                    <!-- 1.2.2.1 Knapp som öppnar/stänger menyn -->
-                    <button id="hamburgerBtn" aria-label="Öppna meny">
+                    <!-- 1.2.2.1 Menyknapp -->
+                    <button id="hamburgerBtn" aria-label="Öppna/stäng meny">
                         <img
                             src="/images/hamburger.png"
                             alt="Hamburgerikon för meny"
@@ -62,26 +63,24 @@
                     <!-- 1.2.2.2 Navigeringslänkar -->
                     <ul class="hamburgerMenu">
                         <li class="menuLink">
-                            <a href="/products/products.html">Products</a>
+                            <a href="/products/products.html">Produkter</a>
                         </li>
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=men's clothing"
+                                >Herr</a
                             >
-                                Men
-                            </a>
                         </li>
                         <li class="menuLink">
                             <a
                                 href="/products/products.html?category=women's clothing"
+                                >Dam</a
                             >
-                                Women
-                            </a>
                         </li>
                         <li class="menuLink">
-                            <a href="/products/products.html?category=jewelery">
-                                Jewelery
-                            </a>
+                            <a href="/products/products.html?category=jewelery"
+                                >Smycken</a
+                            >
                         </li>
                     </ul>
                 </nav>
@@ -89,43 +88,73 @@
         </header>
 
         <!-- ============================================================
-             2. MAIN-SEKTION
-        ============================================================ -->
+         2. MAIN-SEKTION
+    ============================================================ -->
         <main>
             <!-- 2.1 Knappar för produktkategorier (genereras i JS) -->
             <div id="categoryButtons"></div>
 
             <!-- 2.2 Grid för produktkort (dynamiskt innehåll) -->
             <div id="products" class="product-grid"></div>
+
+            <!-- 2.3 Formulär för ny produkt -->
+            <section id="addProduct">
+                <h2>Lägg till ny produkt</h2>
+                <form id="productForm">
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Titel"
+                        required
+                    />
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="Beskrivning"
+                        required
+                    />
+                    <input
+                        type="number"
+                        id="price"
+                        placeholder="Pris"
+                        step="0.01"
+                        required
+                    />
+                    <select id="imageSelect" required>
+                        <option value="">Välj en bild</option>
+                    </select>
+                    <button type="submit">Lägg till produkt</button>
+                </form>
+            </section>
         </main>
 
         <!-- ============================================================
-             3. FOOTER
-        ============================================================ -->
+         3. SIDFOT
+    ============================================================ -->
         <footer>
             <p>© 2025 The Street Store</p>
 
-            <!-- 3.1 Sociala medier-länkar -->
+            <!-- 3.1 Sociala medier -->
             <section id="socialMedia">
-                <a href="#">
-                    <img src="/images/insta-icon.png" alt="Instagram-ikon" />
-                </a>
-                <a href="#">
-                    <img src="/images/fb-icon.png" alt="Facebook-ikon" />
-                </a>
+                <a href="#"
+                    ><img src="/images/insta-icon.png" alt="Instagram-ikon"
+                /></a>
+                <a href="#"
+                    ><img src="/images/fb-icon.png" alt="Facebook-ikon"
+                /></a>
             </section>
 
-            <!-- 3.2 Kontaktuppgifter -->
+            <!-- 3.2 Kontaktinformation -->
             <section id="contact">
-                <h1>Kontakta oss</h1>
+                <h2>Kontakta oss</h2>
                 <p>010-144 444</p>
                 <p>contact@thestreetstore</p>
             </section>
         </footer>
 
         <!-- ============================================================
-             4. SCRIPT
-        ============================================================ -->
+         4. SCRIPT
+    ============================================================ -->
         <script src="products.js"></script>
     </body>
 </html>
