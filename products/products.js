@@ -47,10 +47,6 @@ cart.addEventListener('click', () => {
 
 // ============================================================
 // 3. LADDA OCH VISA KATEGORIER
-// ------------------------------------------------------------
-// Skapar knappar för kategorier hämtade från API:t.
-// När användaren klickar laddas produkter direkt,
-// ingen kategori sparas i localStorage.
 // ============================================================
 
 async function loadCategories() {
@@ -167,10 +163,6 @@ loadApiImages()
 
 // ============================================================
 // 8. LÄGG TILL NY PRODUKT VIA FORMULÄR
-// ------------------------------------------------------------
-// Formuläret sparar fältvärden i localStorage
-// så de finns kvar om sidan laddas om.
-// Detta gäller bara formuläret, inte produktkategorier.
 // ============================================================
 
 const productForm = document.querySelector('#productForm')
