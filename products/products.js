@@ -16,18 +16,16 @@
 // ============================================================
 
 // Hämta element
-const hamburger = document.querySelector('.hamburger-menu') // Wrapper
 const menu = document.querySelector('.hamburgerMenu') // Själva menyn
 const button = document.querySelector('#hamburgerBtn') // Hamburgerknappen
-let customProducts = [] // Array för egna produkter
 
-// 1.2 Visa/dölj menyn vid klick
+// Visa/dölj menyn vid klick
 button.addEventListener('click', (event) => {
     event.stopPropagation() // Förhindrar att klicket stänger menyn direkt
     menu.classList.toggle('active')
 })
 
-// 1.3 Stäng meny om man klickar utanför
+// Stäng menyn vid klick utanför
 document.addEventListener('click', (event) => {
     if (menu.classList.contains('active')) {
         if (!menu.contains(event.target) && !button.contains(event.target)) {
@@ -49,6 +47,10 @@ cart.addEventListener('click', () => {
 
 // ============================================================
 // 3. LADDA OCH VISA KATEGORIER
+// ------------------------------------------------------------
+// Skapar knappar för kategorier hämtade från API:t.
+// När användaren klickar laddas produkter direkt,
+// ingen kategori sparas i localStorage.
 // ============================================================
 
 async function loadCategories() {
@@ -64,7 +66,6 @@ async function loadCategories() {
         const allButton = document.createElement('button')
         allButton.textContent = 'Alla'
         allButton.addEventListener('click', () => {
-            localStorage.setItem('lastCategory', '')
             loadProducts()
         })
         container.appendChild(allButton)
@@ -74,7 +75,6 @@ async function loadCategories() {
             const button = document.createElement('button')
             button.textContent = category
             button.addEventListener('click', () => {
-                localStorage.setItem('lastCategory', category)
                 loadProducts(category)
             })
             container.appendChild(button)
@@ -147,16 +147,6 @@ async function loadApiImages() {
     })
 }
 
-function loadCustomProducts() {
-    const saved = localStorage.getItem('customProducts')
-    if (!saved) return
-
-    customProducts = JSON.parse(saved)
-    customProducts.forEach((product) => {
-        renderCustomProduct(product)
-    })
-}
-
 // ============================================================
 // 6. LÄS URL-PARAMETRAR
 // ============================================================
@@ -166,24 +156,46 @@ const category = urlParams.get('category')
 
 // ============================================================
 // 7. STARTA SIDAN
+// ------------------------------------------------------------
+// Laddar kategori från URL-parametern om den finns,
+// annars visas alla produkter.
 // ============================================================
 
 loadCategories()
-
-// Om en kategori sparats i localStorage → använd den
-const savedCategory = localStorage.getItem('lastCategory')
-loadProducts(savedCategory || category)
-
-loadCustomProducts()
+loadProducts(category || '')
 loadApiImages()
 
 // ============================================================
 // 8. LÄGG TILL NY PRODUKT VIA FORMULÄR
+// ------------------------------------------------------------
+// Formuläret sparar fältvärden i localStorage
+// så de finns kvar om sidan laddas om.
+// Detta gäller bara formuläret, inte produktkategorier.
 // ============================================================
 
 const productForm = document.querySelector('#productForm')
 const productGrid = document.querySelector('#products')
 
+// Lista på fält vi vill spara i localStorage
+const formFields = ['title', 'description', 'price', 'imageSelect']
+
+// Ladda tillbaka värden från localStorage när sidan öppnas
+formFields.forEach((id) => {
+    const savedValue = localStorage.getItem(id)
+    if (savedValue) {
+        document.querySelector('#' + id).value = savedValue
+    }
+})
+
+// Spara värden i localStorage när användaren skriver i fälten
+formFields.forEach((id) => {
+    const input = document.querySelector('#' + id)
+    input.addEventListener('input', () => {
+        localStorage.setItem(id, input.value)
+    })
+})
+
+// När formuläret skickas
 productForm.addEventListener('submit', (event) => {
     event.preventDefault() // Förhindra sidladdning
 
@@ -215,6 +227,9 @@ productForm.addEventListener('submit', (event) => {
 
     productDiv.appendChild(deleteBtn)
     productGrid.appendChild(productDiv)
+
+    // Rensa sparade värden i localStorage
+    formFields.forEach((id) => localStorage.removeItem(id))
 
     productForm.reset() // Töm formuläret
 })

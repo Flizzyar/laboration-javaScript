@@ -15,8 +15,6 @@
 // ============================================================
 
 // 1.1 Hämta element
-// Container som innehåller hamburgerknappen och menyn
-const hamburger = document.querySelector('.hamburger-menu')
 
 // Själva menyn som ska visas/döljas
 const menu = document.querySelector('.hamburgerMenu')
